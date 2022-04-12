@@ -45,16 +45,15 @@ const Home = ({ movies }: Props) => {
 export default Home;
 
 export const getStaticProps = async () => {
-  // const text = "SELECT * FROM movie";
-  // const result = await connection.query(text);
+  const text = "SELECT * FROM movie";
+  const result = await connection.query(text);
   // console.log(result.rows, "new");
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/movies`);
-  const movies = await res.json();
+  // const res = await fetch(`http://localhost:3000/api/movies`);
+  // const movies = await res.json();
 
   return {
     props: {
-      // movies: result.rows,
-      movies: movies,
+      movies: result.rows,
     },
     revalidate: 10,
   };
