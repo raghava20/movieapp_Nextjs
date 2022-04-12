@@ -3,7 +3,6 @@ import Head from "next/head";
 import MovieList from "src/components/MovieList";
 import { Movies } from "../../interfaces/Movies";
 import Link from "next/link";
-import { GetStaticProps } from "next";
 import { connection } from "src/utils/database";
 
 interface Props {
