@@ -20,7 +20,7 @@ export default function Edit({ movie }: Props) {
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    await fetch(`http://localhost:3000/api/movie/edit/` + movie.id, {
+    await fetch(`/api/movie/edit/` + movie.id, {
       method: "PUT",
       body: JSON.stringify(data),
       headers: { "Content-Type": "application/json" },
@@ -125,7 +125,9 @@ export const getServerSideProps: GetServerSideProps = async (
   context: GetServerSidePropsContext<ParsedUrlQuery>
 ) => {
   const { id } = context.query;
-  const res = await fetch(`http://localhost:3000/api/movie/edit/` + id);
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/api/movie/edit/` + id
+  );
   const movie = await res.json();
   return {
     props: {
