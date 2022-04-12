@@ -4,8 +4,8 @@ let connection: any;
 
 if (!connection) {
   connection = new Pool({
-    user: "postgres",
-    password: "postgres123!",
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
     host: "localhost",
     port: 5432,
     database: "movieapp",
