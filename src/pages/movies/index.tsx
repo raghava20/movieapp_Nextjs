@@ -4,12 +4,28 @@ import MovieList from "src/components/MovieList";
 import { Movies } from "../../interfaces/Movies";
 import Link from "next/link";
 import { connection } from "src/utils/database";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 
 interface Props {
   movies: Movies[];
 }
 
 const Home = ({ movies }: Props) => {
+  const router = useRouter();
+  useEffect(() => {
+    checkUser();
+  }, []);
+  const checkUser = () => {
+    if (typeof window !== "undefined") {
+      const user = localStorage.getItem("user");
+      if (!user) {
+        localStorage.removeItem("user");
+        return router.push("/");
+      }
+    }
+  };
+
   return (
     <>
       <Head>
@@ -20,11 +36,21 @@ const Home = ({ movies }: Props) => {
       <header className="text-2xl font-extrabold tracking-tight text-gray-900 bg-gray-100 py-4  flex-1">
         <div className="flex justify-between">
           <p className="ml-8">Movies</p>
-          <Link href="/movies/add" passHref>
-            <button className="shadow px-4 text-sm mr-4 text-white py-1 border rounded-full bg-cyan-600 hover:bg-cyan-700 focus:outline-none focus:ring-1 focus:ring-offset-2 focus:ring-cyan-600">
-              Add &#43;
-            </button>
-          </Link>
+          <div>
+            <Link href="/movies/add" passHref>
+              <button className="shadow px-4 text-sm mr-4 text-white py-1 border rounded-full bg-cyan-600 hover:bg-cyan-700 focus:outline-none focus:ring-1 focus:ring-offset-2 focus:ring-cyan-600">
+                Add &#43;
+              </button>
+            </Link>
+            <Link href="/api/auth/logout">
+              <button
+                onClick={() => localStorage.removeItem("user")}
+                className="shadow px-4 text-sm mr-4 text-gray-800 py-1 bg-slate-100 border rounded-full hover:text-gray-600 focus:outline-none focus:ring-offset-1 focus:ring-gray-600 "
+              >
+                Logout
+              </button>
+            </Link>
+          </div>
         </div>
       </header>
       <main className="bg-white">
