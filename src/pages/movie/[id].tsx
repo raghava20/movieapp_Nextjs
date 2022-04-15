@@ -59,14 +59,14 @@ const Movie = ({ movie }: Props) => {
             <h3 className="text-sm font-bold text-gray-900">{movie.title}</h3>
             <div>
               <button
-                className="shadow-md border-none shadow-green-500/40 mr-2 border-green-600 rounded-full px-4 py-1 font-medium text-gray-100  hover:bg-green-700 bg-green-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-600"
+                className="border mr-2 border-green-600 rounded-full px-4 py-1 font-medium shadow-sm shadow-green-600 text-gray-100  hover:bg-green-700 bg-green-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-600"
                 onClick={() => router.push(`/movie/edit/${router.query.id}`)}
               >
                 <ModeIcon sx={{ fontSize: 18, mr: 0.5, ml: -1, mb: 0.5 }} />
                 Edit
               </button>
               <button
-                className="shadow-md border-none shadow-red-500/40 border-red-500 rounded-full px-4 py-1 font-medium text-gray-100  hover:bg-red-600 bg-red-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
+                className="border border-red-500 rounded-full px-4 py-1 font-medium shadow-sm shadow-red-500 text-gray-100  hover:bg-red-600 bg-red-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
                 onClick={() => setOpen(!open)}
               >
                 <DeleteIcon sx={{ fontSize: 18, mr: 0.5, ml: -1, mb: 0.5 }} />
@@ -93,7 +93,7 @@ const Movie = ({ movie }: Props) => {
 
         <div>
           <button
-            className="shadow-md border-none shadow-cyan-500/40 px-4 text-sm mt-12 text-white py-1 rounded-full bg-cyan-600 hover:bg-cyan-700 focus:outline-none focus:ring-1 focus:ring-offset-2 focus:ring-cyan-600"
+            className="shadow px-4 text-sm mt-12 text-white py-1 border rounded-full bg-cyan-600 hover:bg-cyan-700 focus:outline-none focus:ring-1 focus:ring-offset-2 focus:ring-cyan-600"
             onClick={() => router.back()}
           >
             {" "}
