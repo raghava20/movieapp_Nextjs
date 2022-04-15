@@ -59,9 +59,7 @@ export default function index() {
       }
     );
 
-    console.log(result);
     const data = await result.json();
-    console.log(data.message);
     window.open(data.message, "_parent");
 
     // const options = {
@@ -88,7 +86,7 @@ export default function index() {
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
-    console.log(name);
+
     if (!disabled && name === "others") {
       setFormData({ ...formData, others: "" });
     }
@@ -96,7 +94,6 @@ export default function index() {
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(formData);
     if (formData === initialState) {
       return alert("Please select amount!");
     }

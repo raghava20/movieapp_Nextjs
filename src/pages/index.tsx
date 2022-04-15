@@ -6,7 +6,6 @@ export default function Home() {
   const { user, isLoading, error } = useUser();
   const router = useRouter();
   const handlePush = () => {
-    console.log(user);
     const currentUser = JSON.stringify(user);
     localStorage.setItem("user", currentUser);
     router.push("/movies");

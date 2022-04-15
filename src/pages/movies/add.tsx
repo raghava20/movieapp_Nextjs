@@ -5,7 +5,7 @@ const initialState = {
   description: "",
   director: "",
   review: "",
-  trailer: "",
+  trailer: ""
 };
 
 export default function AddMovies(): JSX.Element {
@@ -20,15 +20,14 @@ export default function AddMovies(): JSX.Element {
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(data);
+
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/movies`, {
       method: "POST",
       body: JSON.stringify(data),
-      headers: { "Content-Type": "application/json" },
+      headers: { "Content-Type": "application/json" }
     });
     setData(initialState);
     router.back();
-    console.log(res);
   };
   return (
     <form

@@ -33,7 +33,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
         if (result.rows.length === 0) {
           return res.status(404).json({ message: "Movie not found" });
         }
-        console.log(result);
         return res.json({ message: "updated movie" });
       } catch (err: unknown) {
         const value = err as Error;
@@ -49,7 +48,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
         if (result.rowCount === 0) {
           return res.status(404).json({ message: "Movie not found" });
         }
-        console.log(result);
         return res.json({ message: "Deleted movie" });
       } catch (err: unknown) {
         const value = err as Error;

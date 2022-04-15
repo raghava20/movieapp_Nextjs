@@ -37,7 +37,6 @@ export default async function (
 
     case "POST":
       try {
-        console.log("hi");
         const { title, description, review, director, trailer } = body;
 
         const query =

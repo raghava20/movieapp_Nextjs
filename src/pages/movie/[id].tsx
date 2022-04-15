@@ -1,7 +1,7 @@
 import {
   GetServerSideProps,
   GetServerSidePropsContext,
-  PreviewData,
+  PreviewData
 } from "next";
 import { useRouter } from "next/router";
 import { ParsedUrlQuery } from "querystring";
@@ -24,7 +24,7 @@ const style = {
   bgcolor: "background.paper",
   border: "2px solid #000",
   boxShadow: 24,
-  p: 4,
+  p: 4
 };
 
 const Movie = ({ movie }: Props) => {
@@ -38,7 +38,7 @@ const Movie = ({ movie }: Props) => {
 
   const handleDelete = async (id: string | undefined) => {
     const res = await fetch(`/api/movie/edit/` + id, { method: "DELETE" });
-    console.log(res);
+
     router.back();
   };
 
@@ -136,8 +136,8 @@ export const getServerSideProps: GetServerSideProps = async (
 
   return {
     props: {
-      movie: movie,
-    },
+      movie: movie
+    }
   };
 };
 

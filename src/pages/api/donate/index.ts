@@ -48,7 +48,6 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
           }
         );
         url = url.toString();
-        console.log("before", url);
         return res.status(201).json({ message: url });
       } catch (error) {
         return console.warn("error", error);
