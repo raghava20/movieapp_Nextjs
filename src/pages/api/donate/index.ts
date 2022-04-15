@@ -8,8 +8,8 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
     case "POST":
       try {
         const razorpayInstance = new Razorpay({
-          key_id: "rzp_test_8esi5HFkjW0AdE",
-          key_secret: "GW2U5KHXjE5NryfKsY7pxqd3"
+          key_id: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID,
+          key_secret: process.env.NEXT_PUBLIC_RAZORPAY_KEY_SECRET
         });
         const { name, email, amount } = body;
         const receipt = (Math.random() * 0xffffff * 10000000000)
