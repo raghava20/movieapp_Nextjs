@@ -1,0 +1,13 @@
+.form_label {
+  cursor: pointer;
+  position: relative;
+}
+
+.form_label input:checked ~ .form_span {
+  background-color: #e36222;
+}
+
+.form_label input:hover ~ .form_label {
+  background-color: #e36222;
+  cursor: pointer;
+}
