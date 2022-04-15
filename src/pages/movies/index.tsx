@@ -38,14 +38,19 @@ const Home = ({ movies }: Props) => {
           <p className="ml-8">Movies</p>
           <div>
             <Link href="/movies/add" passHref>
-              <button className="shadow px-4 text-sm mr-4 text-white py-1 border rounded-full bg-cyan-600 hover:bg-cyan-700 focus:outline-none focus:ring-1 focus:ring-offset-2 focus:ring-cyan-600">
+              <button className="shadow-md shadow-cyan-500/40 px-4 text-sm mr-3 text-white py-1 border-none rounded-full bg-cyan-600 hover:bg-cyan-700 focus:outline-none focus:ring-1 focus:ring-offset-2 focus:ring-cyan-600">
                 Add &#43;
+              </button>
+            </Link>
+            <Link href="/donate">
+              <button className="shadow-md shadow-purple-500/40 px-4 text-sm mr-3 text-white py-1 border-none rounded-full bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-1 focus:ring-offset-2 focus:ring-purple-600">
+                Donate ₹
               </button>
             </Link>
             <Link href="/api/auth/logout">
               <button
                 onClick={() => localStorage.removeItem("user")}
-                className="shadow px-4 text-sm mr-4 text-gray-800 py-1 bg-slate-100 border rounded-full hover:text-gray-600 focus:outline-none focus:ring-offset-1 focus:ring-gray-600 "
+                className="shadow-md shadow-gray-500/40 px-4 text-sm mr-4 text-gray-500 py-1 bg-gray-300 border-none rounded-full hover:bg-gray-400 hover:text-white focus:outline-none focus:ring-offset-1 focus:ring-gray-600 "
               >
                 Logout
               </button>
