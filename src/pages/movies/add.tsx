@@ -21,7 +21,7 @@ export default function AddMovies(): JSX.Element {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/movies`, {
+    await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/movies`, {
       method: "POST",
       body: JSON.stringify(data),
       headers: { "Content-Type": "application/json" }

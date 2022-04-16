@@ -42,12 +42,12 @@ const Home = ({ movies }: Props) => {
                 Add &#43;
               </button>
             </Link>
-            <Link href="/donate">
+            <Link href="/donate" passHref>
               <button className="shadow-md shadow-purple-500/40 px-4 text-sm mr-3 text-white py-1 border-none rounded-full bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-1 focus:ring-offset-2 focus:ring-purple-600">
                 Donate ₹
               </button>
             </Link>
-            <Link href="/api/auth/logout">
+            <Link href="/api/auth/logout" passHref>
               <button
                 onClick={() => localStorage.removeItem("user")}
                 className="shadow-md shadow-gray-500/40 px-4 text-sm mr-4 text-gray-500 py-1 bg-gray-300 border-none rounded-full hover:bg-gray-400 hover:text-white focus:outline-none focus:ring-offset-1 focus:ring-gray-600 "
@@ -84,8 +84,8 @@ export const getStaticProps = async () => {
 
   return {
     props: {
-      movies: result.rows,
+      movies: result.rows
     },
-    revalidate: 10,
+    revalidate: 10
   };
 };

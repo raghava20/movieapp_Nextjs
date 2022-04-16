@@ -37,8 +37,7 @@ const Movie = ({ movie }: Props) => {
   }
 
   const handleDelete = async (id: string | undefined) => {
-    const res = await fetch(`/api/movie/edit/` + id, { method: "DELETE" });
-
+    await fetch(`/api/movie/edit/` + id, { method: "DELETE" });
     router.back();
   };
 

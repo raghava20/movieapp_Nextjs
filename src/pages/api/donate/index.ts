@@ -35,10 +35,10 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
           callback_method: "get",
           callback_url: callbackURL
         };
-        let url;
+        let url: any;
         await razorpayInstance.invoices.create(
           invoiceOptions,
-          (error, invoice) => {
+          (error: any, invoice: { short_url: any }) => {
             if (error) {
               console.log("error", error);
             } else {
@@ -49,7 +49,7 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
         );
         url = url.toString();
         return res.status(201).json({ message: url });
-      } catch (error) {
+      } catch (error: any) {
         return console.warn("error", error);
       }
 

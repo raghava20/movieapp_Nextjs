@@ -4,13 +4,13 @@ const initialState = {
   amount: "",
   others: ""
 };
-export default function index() {
+export default function Index() {
   const [disabled, setDisabled] = useState(false);
   const [formData, setFormData] = useState(initialState);
   const [user, setUser] = useState<any>("");
   useEffect(() => {
     if (typeof window !== "undefined") {
-      let user = JSON.parse(localStorage.getItem("user"));
+      const user = JSON.parse(localStorage.getItem("user") || "{}");
       setUser(user);
     }
   }, []);
